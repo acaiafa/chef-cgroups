@@ -1,0 +1,22 @@
+mount  {
+<% @controllers.each do |controller| -%>
+  <%= controller%> = /cgroup/<%= controller%>;
+<% end -%>
+}
+
+
+group <%= node['cgroups']['group_name'] %>{
+ perm {
+    task {
+         uid = <%= node['cgroups']['task-uid'] %>;
+         gid = <%= node['cgroups']['task-gid'] %>;  }
+   admin {
+         uid = <%= node['cgroups']['admin-uid'] %>;
+         gid = <%= node['cgroups']['admin-gid'] %>;  }  }
+
+<% @controllers.each do |controller| -%>
+<%= controller%> {<% @parameters.each do |parameter| -%>
+                  <%= parameter if parameter.split('.')[0] == controller %>;
+                  <% end -%> } 
+<% end -%>
+ }
