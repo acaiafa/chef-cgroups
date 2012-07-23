@@ -36,7 +36,6 @@ notifies :restart, "service[cgconfig]"
 notifies :restart, "service[#{node[:cgroups][:service]}]"
 end
 
-ttt
 
 service "#{node[:cgroups][:service]}"  do
 end
