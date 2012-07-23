@@ -1,7 +1,7 @@
 Description
 ===========
 
-This cookbook provide to install and configuring the utility Cgroups
+This cookbook provides to install and configuring the utility Cgroups
 
 Requirements
 ============
@@ -11,10 +11,10 @@ OS : Red Hat Enterprise Linux Server release 6.2 (Santiago)
 Attributes
 ==========
 
-#array of controllers
+array of controllers
 default['cgroups']['controllers'] = [ "memory" , "cpu"  ]
 
-#the name of cgroup
+the name of cgroup
 default['cgroups']['group_name'] =  "foobar"
 
 default['cgroups']['parameters'] = [              "memory.limit_in_bytes = 256M",
@@ -27,10 +27,10 @@ default['cgroups']['admin-uid'] = "root"
 default['cgroups']['admin-gid'] = "root"
 default['cgroups']['users'] = [ "root" ]
 
-#the process controlled by cgroups
+the process controlled by cgroups
 default['cgroups']['command'] = "/opt/myprogram/bin/mycommand"
 
-#put a name of service if you want rester a specific service after the configuration
+put a name of service if you want restart a specific service after the configuration
 default['cgroups']['service'] = "VRTSralus.init"
 
 
