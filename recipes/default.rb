@@ -8,6 +8,9 @@
 #
 
 
+
+unless node[:platform] == "redhat" and  node[:platform_version].to_i  != 6
+
 package "libcgroup" do
   action :install
 end
@@ -49,4 +52,4 @@ service "cgred" do
   action [:enable]
 end
 
-
+end
