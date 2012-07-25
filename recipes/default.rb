@@ -25,8 +25,12 @@ template "/etc/cgconfig.conf" do
       )  
 notifies :restart, "service[cgconfig]"
 notifies :restart, "service[cgred]"
+
+if ::File.exists? "/etc/init.d/#{node[:cgroups][:service]}"
 notifies :restart, "service[#{node[:cgroups][:service]}]"
 end
+end
+
 
 
 template "/etc/cgrules.conf" do
@@ -36,11 +40,16 @@ template "/etc/cgrules.conf" do
 )
 notifies :restart, "service[cgred]"
 notifies :restart, "service[cgconfig]"
+
+if ::File.exists? "/etc/init.d/#{node[:cgroups][:service]}"
 notifies :restart, "service[#{node[:cgroups][:service]}]"
+end
 end
 
 
+
 service "#{node[:cgroups][:service]}"  do
+only_if {::File.exists? "/etc/init.d/#{node[:cgroups][:service]}"}
 end
 
 

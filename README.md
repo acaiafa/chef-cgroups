@@ -24,8 +24,27 @@ Attributes
 * default['cgroups']['service'] = "fooService"
 
 
+Template
+==========
+
+* cgconfig.conf.erb  
+
+the configuration file /etc/cgconfig.conf
+
+* cgrules.conf.erb
+
+the configuration file /etc/cgrules.conf
+
+At moment this cookbook has some limitations.
+
+1. is not possible configure more groups
+2. is not possible configure  for users some different controllers..  but work in progress.
+
 Usage
 =====
+
+1. after launch cgroups recipe check ` cat /cgroup/memory/VRTSralus/tasks ` you should see the PIDs of your target processes
+2. after a change in /etc/cgconfig.conf or  /etc/cgrules.conf the recipe restarts a specify service (only if that service exists)
 
 
 
