@@ -43,7 +43,7 @@ At moment this cookbook has some limitations.
 Usage
 =====
 
-1. after launch cgroups recipe check ` cat /cgroup/memory/VRTSralus/tasks ` you should see the PIDs of your target processes
+1. after launch cgroups recipe check ` cat /cgroup/memory/myfoogroup/tasks ` you should see the PIDs of your target processes
 2. after a change in /etc/cgconfig.conf or  /etc/cgrules.conf the recipe restarts a specify service (only if that service exists)
 
 
