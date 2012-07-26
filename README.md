@@ -27,7 +27,7 @@ Attributes
 Template
 ==========
 
-* cgconfig.conf.erb  
+* cgconfig.conf.erb
 
 the configuration file /etc/cgconfig.conf
 

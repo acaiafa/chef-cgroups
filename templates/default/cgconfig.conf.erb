@@ -17,6 +17,6 @@ group <%= node['cgroups']['group_name'] %>{
 <% @controllers.each do |controller| -%>
 <%= controller%> {<% @parameters.each do |parameter| -%>
                   <%= parameter if parameter.split('.')[0] == controller %>;
-                  <% end -%> } 
+                  <% end -%> }
 <% end -%>
  }
