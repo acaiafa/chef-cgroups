@@ -59,7 +59,7 @@ end
 
 
 
-service "#{node['cgroups']['service']}"  do
+service node['cgroups']['service']  do
 only_if {::File.exists? "/etc/init.d/#{node['cgroups']['service']}"}
 end
 
